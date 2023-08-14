@@ -19,6 +19,16 @@
                 <cenc:pssh>AAAANHBzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAABQIARIQ+MgMJWkPRzaBMkMOXGmUzg==</cenc:pssh>
             </ContentProtection>
             <!-- Add other adaptation set elements here, such as Representation, Role, etc. -->
+
+               <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+			<SegmentTemplate media="$RepresentationID$/$Number%04d$.m4s" timescale="24" startNumber="1" duration="96" initialization="$RepresentationID$/init.mp4" />
+			<Representation id="1" mimeType="video/mp4" codecs="avc1.640015" width="512" height="288" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="391237"></Representation>
+			<Representation id="2" mimeType="video/mp4" codecs="avc1.64001E" width="640" height="360" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="767294"></Representation>
+			<Representation id="3" mimeType="video/mp4" codecs="avc1.64001E" width="852" height="480" frameRate="24" sar="640:639" startWithSAP="1" bandwidth="1146491"></Representation>
+			<Representation id="4" mimeType="video/mp4" codecs="avc1.64001F" width="1280" height="720" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="1991318"></Representation>
+			<Representation id="5" mimeType="video/mp4" codecs="avc1.640028" width="1920" height="1080" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="2806222"></Representation>
+
+
         </AdaptationSet>
     </Period>
 </MPD>
