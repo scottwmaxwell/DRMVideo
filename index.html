@@ -1,0 +1,35 @@
+<!-- Include the Shaka Player js and css. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/3.2.0/shaka-player.compiled.js" integrity="sha512-9SpI4t+0FNlrOTC/bkahpYAV5gNXALQBZXk0zew1HQ9Am5iugZ7dgbIvNhL01GkyY+xDkdMagOAQizXUa2y/gQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link data-minify="1" rel="stylesheet" href="https://www.soliddigital.com/wp-content/cache/min/1/ajax/libs/shaka-player/3.2.0/controls.min.css?ver=1691856172" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<!-- Here is the video element that we will connect the Shaka Player to. -->
+<video id="drm-demo" controls="" style="width: 100%; visibility: hidden;"></video>
+
+<script>
+
+// Replace
+const axManifestUri = 'https://raw.githubusercontent.com/scottwmaxwell/DRMVideo/main/test.mpd'
+const axLicenseServer = "none";
+
+async function initPlayer() {
+  // Create a Player instance.
+  const video = document.getElementById('drm-demo');
+  const player = new shaka.Player(video);
+
+  // Set the widevine license server url.
+  player.configure({
+    drm: {
+      servers: {
+        'com.widevine.alpha': axLicenseServer,
+      }
+    }
+  });
+
+  // Load a manifest for player
+  player.load(axManifestUri);
+
+}
+
+document.addEventListener('DOMContentLoaded', initPlayer);
+
+</script>
